@@ -9,6 +9,14 @@
             VerticalOptions="Center"
             ItemsSource="{Binding Images}"
             >
+            <CollectionView.EmptyView>
+                <Label Text="There is not data" />
+            </CollectionView.EmptyView>
+            <CollectionView.ItemTemplate>
+                <DataTemplate>
+                    <Label Text="{Binding Name}" />
+                </DataTemplate>
+            </CollectionView.ItemTemplate>
         </CollectionView>
     </VerticalStackLayout>
 

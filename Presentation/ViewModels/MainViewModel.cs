@@ -19,7 +19,7 @@ public partial class MainViewModel : ObservableObject
     public async void LoadImages()
     {
         var images = await _dockerService.GetImages();
-        //
-        // _images = new ObservableCollection<DockerImage>(images);
+        
+        Images = new ObservableCollection<DockerImage>(images);
     }
 }
