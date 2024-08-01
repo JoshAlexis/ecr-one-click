@@ -1,4 +1,6 @@
-﻿using Microsoft.Extensions.Logging;
+﻿using EcrOneClick.DI;
+using EcrOneClick.ViewModels;
+using Microsoft.Extensions.Logging;
 
 namespace EcrOneClick;
 
@@ -19,6 +21,12 @@ public static class MauiProgram
         builder.Logging.AddDebug();
 #endif
 
-        return builder.Build();
+        builder.Services.AddSingleton<MainViewModel>();
+        
+        var app = builder.Build();
+        
+        ServiceHelper.Initialize(app.Services);
+        
+        return app;
     }
 }
