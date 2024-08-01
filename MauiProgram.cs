@@ -1,5 +1,7 @@
 ﻿using EcrOneClick.DI;
-using EcrOneClick.ViewModels;
+using EcrOneClick.Infrastructure;
+using EcrOneClick.Infrastructure.Abstract;
+using EcrOneClick.Presentation.ViewModels;
 using Microsoft.Extensions.Logging;
 
 namespace EcrOneClick;
@@ -22,6 +24,7 @@ public static class MauiProgram
 #endif
 
         builder.Services.AddSingleton<MainViewModel>();
+        builder.Services.AddSingleton<IDockerService, DockerService>();
         
         var app = builder.Build();
         
